@@ -31,7 +31,7 @@ class EquivariantMPNNLayer(MessagePassing):
         # we used previously).
         #
         self.mlp_msg = Sequential(
-            Linear(2*emb_dim + edge_dim + 1, emb_dim), BatchNorm1d(emb_dim), ReLU(),
+            Linear(2*emb_dim + edge_dim + 1 + 1, emb_dim), BatchNorm1d(emb_dim), ReLU(),
             Linear(emb_dim, emb_dim), BatchNorm1d(emb_dim), ReLU()
           )
         
@@ -86,7 +86,7 @@ class EquivariantMPNNLayer(MessagePassing):
         # print(pos_i)
         
         # print(dist_1)
-        msg = torch.cat([h_i, h_j, edge_attr, dist_1], dim=-1)
+        msg = torch.cat([h_i, h_j, edge_attr, dist_1, dist_2], dim=-1)
         # pos_msg = torch.cat([pos_j, edge_attr, dist_1], dim=-1)
         pos_msg = torch.cat([pos_j, dist_1], dim=-1)
  
