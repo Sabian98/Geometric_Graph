@@ -88,7 +88,7 @@ class EquivariantMPNNLayer(MessagePassing):
         # print(dist_1)
         msg = torch.cat([h_i, h_j, edge_attr, dist_1, dist_2], dim=-1)
         # pos_msg = torch.cat([pos_j, edge_attr, dist_1], dim=-1)
-        pos_msg = torch.cat([pos_j, dist_1], dim=-1)
+        pos_msg = torch.cat([pos_j, dist_2], dim=-1)
  
         return  self.mlp_msg(msg), self.mlp_msg_coord(pos_msg)
     
