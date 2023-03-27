@@ -57,7 +57,7 @@ print(f"Is {type(layer).__name__} rotation and translation equivariant? --> {rot
 # it = iter(dataloader)
 # data = next(it)
 # out = model(data)
-'''
+
 model_name = type(model).__name__
 best_val_error, test_error, train_time, perf_per_epoch = run_experiment(
     model, 
@@ -74,4 +74,3 @@ df_temp = pd.DataFrame(perf_per_epoch, columns=["Test MAE", "Val MAE", "Epoch", 
 DF_RESULTS = DF_RESULTS.append(df_temp, ignore_index=True)
 
 print(RESULTS)
-'''
